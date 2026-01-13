@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Untuk Orang Terkasih</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+        .falling-photo {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            background-size: cover;
+            border-radius: 10px;
+            opacity: 0.8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fall 8s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes fall {
+            from {
+                top: -100px;
+                opacity: 0.8;
+            }
+            to {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 95%;
+            width: 100%;
+            padding: 30px 20px;
+            text-align: center;
+            animation: slideIn 0.8s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: clamp(1.8em, 5vw, 2.5em);
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .heart {
+            font-size: clamp(2em, 8vw, 3em);
+            margin: 15px 0;
+            animation: heartbeat 1.5s ease-in-out infinite, float 3s ease-in-out infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .praise {
+            color: #333;
+            font-size: clamp(1em, 4vw, 1.15em);
+            line-height: 1.8;
+            margin: 20px 0;
+            font-weight: 300;
+            animation: fadeIn 1.2s ease-out;
+        }
+        ul {
+            list-style: none;
+            margin: 30px 0;
+            padding: 0;
+        }
+        li {
+            color: #555;
+            padding: 12px;
+            font-size: clamp(0.9em, 3.5vw, 1.05em);
+            margin: 8px 0;
+            background: #f8f9ff;
+            border-left: 4px solid #764ba2;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.6s ease-out backwards;
+        }
+        li:nth-child(1) { animation-delay: 0.1s; }
+        li:nth-child(2) { animation-delay: 0.2s; }
+        li:nth-child(3) { animation-delay: 0.3s; }
+        li:nth-child(4) { animation-delay: 0.4s; }
+        li:nth-child(5) { animation-delay: 0.5s; }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        li:active {
+            background: #f0f1ff;
+            transform: translateX(5px);
+        }
+        .footer {
+            margin-top: 30px;
+            color: #999;
+            font-style: italic;
+            font-size: clamp(0.85em, 3vw, 0.95em);
+            animation: fadeIn 1.5s ease-out;
+        }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #764ba2;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+        .music-control:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="music-control" onclick="toggleMusic()">🎵</button>
+    
+    <div class="container">
+        <h1>Untuk Gadis Istimewa</h1>
+        <div class="heart">❤️</div>
+        
+        <p class="praise">Kamu adalah orang paling luar biasa dalam hidupku.</p>
+        
+        <ul>
+            <li>✨ Senyummu membuat dunia lebih cerah</li>
+            <li>💎 Hatimu sangat mulia dan baik</li>
+            <li>🌟 Kecantikanmu memukau dari dalam dan luar</li>
+            <li>🎵 Suaramu seperti musik indah di telingaku</li>
+            <li>💪 Kekuatanmu menginspirasi aku setiap hari</li>
+        </ul>
+        
+        <p class="praise">Terima kasih telah menjadi bagian dari hidupku.</p>
+        <div class="footer">Dari opal untuk umi❤️</div>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const audio = document.getElementById('bgMusic');
+            const btn = document.querySelector('.music-control');
+            if (audio.paused) {
+                audio.play();
+                btn.textContent = '🎵';
+            } else {
+                audio.pause();
+                btn.textContent = '🔇';
+            }
+        }
+
+        function createFallingPhotos() {
+            const emojis = ['📷', '🎀', '✨', '💕', '🌹', '💐', '🎁', '⭐'];
+            
+            setInterval(() => {
+                const photo = document.createElement('div');
+                photo.className = 'falling-photo';
+                photo.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                photo.style.fontSize = '40px';
+                photo.style.display = 'flex';
+                photo.style.alignItems = 'center';
+                photo.style.justifyContent = 'center';
+                photo.style.left = Math.random() * window.innerWidth + 'px';
+                photo.style.animationDuration = (5 + Math.random() * 3) + 's';
+                
+                document.body.appendChild(photo);
+                
+                setTimeout(() => photo.remove(), 8000);
+            }, 500);
+        }
+
+        createFallingPhotos();
+    </script>
+</body>
+</html>
